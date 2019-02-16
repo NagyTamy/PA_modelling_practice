@@ -12,12 +12,6 @@
     <march_size>80000</march_size>
     <march_count>4</march_count>
   </Player>
-  <Player name="Teszt6">
-    <troop_tier>T8</troop_tier>
-    <troop_spec>Cavalry</troop_spec>
-    <march_size>80000</march_size>
-    <march_count>4</march_count>
-  </Player>
   <Player name="Teszt4">
     <troop_tier>T8</troop_tier>
     <troop_spec>Range</troop_spec>
@@ -36,7 +30,7 @@
     <march_size>80000</march_size>
     <march_count>4</march_count>
   </Player>
-  <Player name="Teszt6">
+  <Player name="teszt666">
     <troop_tier>T8</troop_tier>
     <troop_spec>Cavalry</troop_spec>
     <march_size>80000</march_size>
@@ -90,12 +84,6 @@
     <march_size>80000</march_size>
     <march_count>4</march_count>
   </Player>
-  <Player name="Teszt">
-    <troop_tier>T8</troop_tier>
-    <troop_spec>Cavalry</troop_spec>
-    <march_size>88000</march_size>
-    <march_count>4</march_count>
-  </Player>
   <Player name="New">
     <troop_tier>T9</troop_tier>
     <troop_spec>Range</troop_spec>
@@ -120,13 +108,25 @@
     <march_size>90000</march_size>
     <march_count>4</march_count>
   </Player>
-  <Player name="Tara">
+  <Player name="Tara Muppets">
     <troop_tier>T9</troop_tier>
     <troop_spec>Cavalry</troop_spec>
     <march_size>90000</march_size>
     <march_count>4</march_count>
   </Player>
   <Player name="House Muppets">
+    <troop_tier>T9</troop_tier>
+    <troop_spec>Cavalry</troop_spec>
+    <march_size>90000</march_size>
+    <march_count>4</march_count>
+  </Player>
+  <Player name="0">
+    <troop_tier>T8</troop_tier>
+    <troop_spec>Range</troop_spec>
+    <march_size>80000</march_size>
+    <march_count>4</march_count>
+  </Player>
+  <Player name="Test Julcsa">
     <troop_tier>T9</troop_tier>
     <troop_spec>Cavalry</troop_spec>
     <march_size>90000</march_size>

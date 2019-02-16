@@ -57,7 +57,7 @@ public class Menu {
 
 
 
-    private void players_menu(){
+    void players_menu(){
         clearScreen();
         ArrayList<String> playersMenu = new ArrayList<>(List.of("Exit", "Show members in alphabetical order",
                 "Add a new member", "Add multiple new members", "Modify existing member", "Remove member"));
@@ -92,7 +92,9 @@ public class Menu {
                     break;
                 //Modify existing member
                 case 4:
-
+                    players.updatePlayerDatas(xmlFilePath);
+                    players.pressAnyKeyToContinue();
+                    players.printMenu(playersMenu);
                     break;
                 //Remove member
                 case 5:

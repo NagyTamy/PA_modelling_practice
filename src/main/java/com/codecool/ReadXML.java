@@ -87,6 +87,7 @@ public class ReadXML {
         } return searchResult;
     }
 
+    //search for players in xml file, returns true if player already stored
     public boolean ifPlayerExist(String xmlFilePath, String findName) {
         List<Player> membersList = readAllegianceFromFile(xmlFilePath);
         for (Player p : membersList) {
@@ -96,10 +97,28 @@ public class ReadXML {
         }return false;
     }
 
-    //finds and returns the player with the given name
+    //search for players in list, returns true if player with the same name already exist
+    public boolean ifPlayerExist(List<Player> membersList, String findName) {
+        for (Player p : membersList) {
+            if (findName.toLowerCase().equals(p.getPlayerName().toLowerCase())) {
+                return true;
+            }
+        }return false;
+    }
+
+    //finds and returns the player with the given name in xml file
 
     public Player findPlayerByName(String xmlFilePath, String findName) {
         List<Player> membersList = readAllegianceFromFile(xmlFilePath);
+        for (Player p : membersList) {
+            if (findName.toLowerCase().equals(p.getPlayerName().toLowerCase())) {
+                return p;
+            }
+        } return null;
+    }
+    //finds and returns the player with the given name in List<Player>
+
+    public Player findPlayerByName(List<Player> membersList, String findName) {
         for (Player p : membersList) {
             if (findName.toLowerCase().equals(p.getPlayerName().toLowerCase())) {
                 return p;

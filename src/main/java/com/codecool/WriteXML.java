@@ -187,12 +187,15 @@ public class WriteXML {
         List<Player> list = openToWrite.readAllegianceFromFile(xmlFilePath);
         String searchForPlayer = writeFiles.getStringInput("Add the name of the player you want to remove:");
         if (openToWrite.ifPlayerExist(xmlFilePath, searchForPlayer)) {
-            Player playerToRemove = openToWrite.findPlayerByName(xmlFilePath, searchForPlayer);
+            Player playerToRemove = openToWrite.findPlayerByName(list, searchForPlayer);
+            int index = list.indexOf(playerToRemove);
+            System.out.println(index);
             String option = writeFiles.getStringInput("Are you sure you want to remove player " +
                     playerToRemove + "? Y - to remove, N - go back to menu");
             if (option.toLowerCase().equals("y")){
                 System.out.println(list);
-                list.remove(playerToRemove);
+                System.out.println(index);
+                list.remove(index);
                 System.out.println(list);
                 writeAllegianceToFile(allegianceName, list, xmlFilePath);
             } else if (option.toLowerCase().equals("n")){

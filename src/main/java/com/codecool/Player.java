@@ -66,13 +66,7 @@ public class Player extends Allegiance implements Comparable<Player>{
         marchPower = countMarchPower(marchSize, tier);
     }
 
-    public int getMarchCount(){
-        return marchCount;
-    }
 
-    public void setMarchCount(int newMarchCount){
-        this.marchCount = newMarchCount;
-    }
 
     public int setDefaultMarchSize(TroopTiers tier) {
         if (tier == TroopTiers.T7){
@@ -121,21 +115,49 @@ public class Player extends Allegiance implements Comparable<Player>{
         return playerName;
     }
 
+    public void setPlayerName(String newPlayerName){
+        this.playerName = newPlayerName;
+    }
+
     public TroopTiers getTier(){
         return tier;
+    }
+
+    public void setTier(TroopTiers tier) {
+        this.tier = tier;
     }
 
     public TroopSpec getSpec(){
         return spec;
     }
 
+    public void setSpec(TroopSpec spec) {
+        this.spec = spec;
+    }
+
     public int getMarchSize(){
         return marchSize;
+    }
+
+    public void setMarchSize(int marchSize) {
+        this.marchSize = marchSize;
     }
 
     public double getMarchPower(){
         return marchPower;
     }
+
+    public int getMarchCount(){
+        return marchCount;
+    }
+
+    public void setMarchCount(int newMarchCount){
+        this.marchCount = newMarchCount;
+    }
+
+
+
+
 
     @Override
     public String toString(){

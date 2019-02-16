@@ -20,9 +20,17 @@ public class UI{
         System.out.println("\n" + message + "\n");
     }
 
+
+
     public int getIntInput(){
         Scanner scan = new Scanner(System.in);
         return scan.nextInt();
+    }
+
+    //asks for int user input, displays explanation message passed as parameter
+    public int getIntInput(String message){
+        System.out.println("\n" + message + "\n");
+        return getIntInput();
     }
 
 
@@ -146,5 +154,60 @@ public class UI{
         }while (true);
 
     }
+
+    //asks for user input on the datas to update
+    
+    public void updatePlayerDatas(String xmlFilePath){
+
+        ReadXML updateDatas = new ReadXML();
+        List<Player> modifyList = updateDatas.readAllegianceFromFile(xmlFilePath);
+        String searchName = getStringInput("Add the name of the player you want to update here:");
+        boolean existingPlayer = updateDatas.ifPlayerExist(xmlFilePath, searchName);
+        Player player = updateDatas.findPlayerByName(modifyList, searchName);
+        if (!existingPlayer){
+            searchName = getStringInput("There is no player by this name, please choose from the following list, or type ADD to add new player!\n" +
+                    updateDatas.findPlayersByName(xmlFilePath, searchName));
+            if (searchName.toLowerCase().equals("add")){
+                    new WriteXML().appendPlayer(xmlFilePath);
+            } else if (!(updateDatas.ifPlayerExist(xmlFilePath, searchName))){
+                printMessage("Player by that name doesn't exist redirecting to create new player now...");
+                new WriteXML().appendPlayer(xmlFilePath);
+            } else {
+                player = updateDatas.findPlayerByName(modifyList, searchName);
+                existingPlayer = true;
+            }
+        }
+
+        ArrayList<String> dataList = new ArrayList<>(List.of("Back to players menu", "Update name", "Update tier", "Update troop spec",
+                "Update march size", "Update march count"));
+        printMenu(dataList);
+
+        String playerName;
+        TroopTiers tier;
+        TroopSpec spec;
+        int marchSize;
+        int marchCount;
+        int option = getIntInput("Add the number of data you want to modify:");
+        if (option == 0){
+            new Menu().players_menu();
+        } else if (option == 1){
+            String newPlayerName;
+            while (existingPlayer){
+                newPlayerName = getStringInput("Add new name");
+                existingPlayer = updateDatas.ifPlayerExist(modifyList, newPlayerName);
+                player.setPlayerName(newPlayerName);
+            }
+            String next = getStringInput("Would you like to update other data?");
+            if (next.toLowerCase().equals("y")){
+                updatePlayerDatas(xmlFilePath);
+            } else if (next.toLowerCase().equals("n")){
+                String allegianceName = updateDatas.getAllegianceName(xmlFilePath);
+                new WriteXML().writeAllegianceToFile(allegianceName, modifyList, xmlFilePath);
+
+            }
+        }
+        //Player(String playerName, TroopTiers tier, TroopSpec spec, int marchSize, int marchCount)
+    }
+
 
 }
