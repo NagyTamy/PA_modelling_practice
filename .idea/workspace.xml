@@ -3,13 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="aca39f38-e545-4e8f-89d2-39e937b3423a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/src/main/java/com/codecool/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codecool/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codecool/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codecool/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codecool/ReadXML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codecool/ReadXML.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/codecool/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codecool/UI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/codecool/WriteXML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codecool/WriteXML.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/data/players.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data/players.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/codecool/ReadXML.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/codecool/ReadXML.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/codecool/WriteXML.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/codecool/WriteXML.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,17 +28,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/codecool/ReadXML.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="449">
-              <caret line="152" column="13" lean-forward="true" selection-start-line="140" selection-start-column="8" selection-end-line="152" selection-end-column="13" />
+            <state relative-caret-position="134">
+              <caret line="79" column="41" selection-start-line="79" selection-start-column="24" selection-end-line="79" selection-end-column="41" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/codecool/WriteXML.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1244">
-              <caret line="103" column="75" lean-forward="true" selection-start-line="103" selection-start-column="8" selection-end-line="103" selection-end-column="75" />
+            <state relative-caret-position="419">
+              <caret line="165" column="21" lean-forward="true" selection-start-line="165" selection-start-column="21" selection-end-line="165" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -50,8 +46,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/codecool/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="59" column="14" selection-start-line="59" selection-start-column="14" selection-end-line="59" selection-end-column="14" />
+            <state relative-caret-position="135">
+              <caret line="72" column="30" lean-forward="true" selection-start-line="72" selection-start-column="30" selection-end-line="72" selection-end-column="30" />
               <folding>
                 <element signature="e#3133#3134#0" expanded="true" />
                 <element signature="e#3152#3153#0" expanded="true" />
@@ -66,11 +62,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/codecool/UI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="359">
-              <caret line="179" column="82" selection-start-line="179" selection-start-column="82" selection-end-line="179" selection-end-column="82" />
+            <state relative-caret-position="1934">
+              <caret line="429" column="96" selection-start-line="429" selection-start-column="96" selection-end-line="429" selection-end-column="96" />
             </state>
           </provider>
         </entry>
@@ -78,8 +74,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/codecool/Menu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="59" column="4" selection-start-line="59" selection-start-column="4" selection-end-line="59" selection-end-column="4" />
+            <state relative-caret-position="359">
+              <caret line="88" column="40" selection-start-line="88" selection-start-column="40" selection-end-line="88" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -90,6 +86,7 @@
     <findStrings>
       <find>set</find>
       <find>ADD</find>
+      <find>getmarcs</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -98,11 +95,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/codecool/WriteXML.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/codecool/Player.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/codecool/ReadXML.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/codecool/Menu.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/codecool/UI.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/codecool/WriteXML.java" />
       </list>
     </option>
   </component>
@@ -168,7 +165,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550326159071" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550336819150" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -217,7 +214,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25235197" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -248,10 +244,24 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/codecool/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/codecool/Menu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="88" column="40" selection-start-line="88" selection-start-column="40" selection-end-line="88" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/codecool/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="59" column="14" selection-start-line="59" selection-start-column="14" selection-end-line="59" selection-end-column="14" />
+        <state relative-caret-position="135">
+          <caret line="72" column="30" lean-forward="true" selection-start-line="72" selection-start-column="30" selection-end-line="72" selection-end-column="30" />
           <folding>
             <element signature="e#3133#3134#0" expanded="true" />
             <element signature="e#3152#3153#0" expanded="true" />
@@ -267,36 +277,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/codecool/ReadXML.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="449">
-          <caret line="152" column="13" lean-forward="true" selection-start-line="140" selection-start-column="8" selection-end-line="152" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/codecool/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/codecool/Menu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="59" column="4" selection-start-line="59" selection-start-column="4" selection-end-line="59" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/codecool/WriteXML.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1244">
-          <caret line="103" column="75" lean-forward="true" selection-start-line="103" selection-start-column="8" selection-end-line="103" selection-end-column="75" />
+        <state relative-caret-position="134">
+          <caret line="79" column="41" selection-start-line="79" selection-start-column="24" selection-end-line="79" selection-end-column="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/codecool/UI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="179" column="82" selection-start-line="179" selection-start-column="82" selection-end-line="179" selection-end-column="82" />
+        <state relative-caret-position="1934">
+          <caret line="429" column="96" selection-start-line="429" selection-start-column="96" selection-end-line="429" selection-end-column="96" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/codecool/WriteXML.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="419">
+          <caret line="165" column="21" lean-forward="true" selection-start-line="165" selection-start-column="21" selection-end-line="165" selection-end-column="21" />
         </state>
       </provider>
     </entry>

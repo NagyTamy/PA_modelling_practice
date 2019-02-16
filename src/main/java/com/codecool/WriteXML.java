@@ -157,7 +157,7 @@ public class WriteXML {
                         String addOrModify = writeFiles.getStringInput("Player with this name already exist, would you like to modify it? " +
                                 "Y - to modify existing player, N - add new player with different name:");
                         if (addOrModify.toLowerCase().equals("y")){
-                            System.out.println("Implement update member method here");
+                            writeFiles.updatePlayer(player.getPlayerName(), updateList, xmlFilePath);
                         } else if (addOrModify.toLowerCase().equals("n")){
                             continue;
                         } else {
@@ -182,32 +182,54 @@ public class WriteXML {
 
 
 
-    public void removePlayerByName(String xmlFilePath){
-        String allegianceName = openToWrite.getAllegianceName(xmlFilePath);
-        List<Player> list = openToWrite.readAllegianceFromFile(xmlFilePath);
-        String searchForPlayer = writeFiles.getStringInput("Add the name of the player you want to remove:");
-        if (openToWrite.ifPlayerExist(xmlFilePath, searchForPlayer)) {
-            Player playerToRemove = openToWrite.findPlayerByName(list, searchForPlayer);
-            int index = list.indexOf(playerToRemove);
-            System.out.println(index);
-            String option = writeFiles.getStringInput("Are you sure you want to remove player " +
-                    playerToRemove + "? Y - to remove, N - go back to menu");
-            if (option.toLowerCase().equals("y")){
-                System.out.println(list);
-                System.out.println(index);
-                list.remove(index);
-                System.out.println(list);
-                writeAllegianceToFile(allegianceName, list, xmlFilePath);
-            } else if (option.toLowerCase().equals("n")){
-                return;
+    public void removePlayerByName(String xmlFilePath) {
+        try {
+            String allegianceName = openToWrite.getAllegianceName(xmlFilePath);
+            List<Player> list = openToWrite.readAllegianceFromFile(xmlFilePath);
+            String searchForPlayer = writeFiles.getStringInput("Add the name of the player you want to remove:");
+            boolean playerExist = openToWrite.ifPlayerExist(xmlFilePath, searchForPlayer);
+            if (playerExist) {
+                Player playerToRemove = openToWrite.findPlayerByName(list, searchForPlayer);
+                int index = list.indexOf(playerToRemove);
+                String option = writeFiles.getStringInput("Are you sure you want to remove player " +
+                        playerToRemove + "? Y - to remove, N - go back to menu");
+                if (option.toLowerCase().equals("y")) {
+                    list.remove(index);
+                    writeAllegianceToFile(allegianceName, list, xmlFilePath);
+                } else if (option.toLowerCase().equals("n")) {
+                    return;
+                } else {
+                    throw new IllegalArgumentException();
+                }
+            } else if (!playerExist) {
+                writeFiles.printMessage("There is no player with that exact name, here is the list of players having similar names:");
+                writeFiles.printPlayersList(openToWrite.findPlayersByName(xmlFilePath, searchForPlayer));
+                String option = writeFiles.getStringInput("Add the name of the player you want to remove or 0 to exitÍ:");
+                if (option.equals("0")) {
+                    new Menu().players_menu();
+                } else if (!(openToWrite.ifPlayerExist(xmlFilePath, option))) {
+                    writeFiles.printMessage("Invalid option redirecting to players menu...");
+                    new Menu().players_menu();
+                } else {
+                    Player playerToRemove = openToWrite.findPlayerByName(list, option);
+                    int index = list.indexOf(playerToRemove);
+                    String newOption = writeFiles.getStringInput("Are you sure you want to remove player " +
+                            playerToRemove + "? Y - to remove, N - go back to menu");
+                    if (newOption.toLowerCase().equals("y")) {
+                        list.remove(index);
+                        writeAllegianceToFile(allegianceName, list, xmlFilePath);
+                    } else if (newOption.toLowerCase().equals("n")) {
+                        return;
+                    } else {
+                        throw new IllegalArgumentException();
+                    }
+                }
             } else {
                 throw new IllegalArgumentException();
             }
-
-        } else {
-            throw new IllegalArgumentException();
+        } catch (IllegalArgumentException e){
+            writeFiles.printMessage("Invalid option, try again!");
         }
     }
-
 
 }

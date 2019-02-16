@@ -116,7 +116,7 @@ public class UI{
         }
     }
 
-    public int getMarcSizeFromUser(TroopTiers tier, Player newPlayer){
+    public int getMarchSizeFromUser(TroopTiers tier, Player newPlayer){
         int marchSize;
         String optionMarcSize = getStringInput("\nWould you like to set your unique march size?\n");
         if (optionMarcSize.toLowerCase().equals("y") || optionMarcSize.toLowerCase().equals("yes")){
@@ -136,40 +136,53 @@ public class UI{
 
     }
 
+
+    public int getMarchSizeFromUser(){
+        int marchSize = getIntInput("Add new march size below");
+        if (marchSize > 40000 && marchSize < 150000){
+            return marchSize;
+        } else {
+            throw new IllegalArgumentException("\nYou march size supposed to be between 40k and 150k!\n");
+        }
+    }
+
     public Player createNewPlayer(){
         do {
             try {
-                Player newPlayer = new Player();
+                Player player = new Player();
                 String playerName = getStringInput("\nAdd the new character's name below: \n");
                 TroopTiers tier = getTiersFromUser();
                 TroopSpec spec = getSpecsFromUser();
-                int marchSize = getMarcSizeFromUser(tier, newPlayer);
+                int marchSize = getMarchSizeFromUser(tier, player);
                 int marchCount = getMarchCountFromUser();
                 return new Player(playerName, tier, spec, marchSize, marchCount);
-            } catch (InputMismatchException e){
-                printMessage("Please make sure to enter the right format!\n\nTry again...");
-            }catch (IllegalArgumentException e){
+            } catch (IllegalArgumentException e){
                 printMessage("Please make sure to enter the right format!\n\nTry again...");
             }
+
         }while (true);
 
     }
 
     //asks for user input on the datas to update
-    
-    public void updatePlayerDatas(String xmlFilePath){
+
+    public void updatePlayerDatas(String xmlFilePath, Player player){
+
+    }
+
+    public void updatePlayerDatas(String xmlFilePath) {
 
         ReadXML updateDatas = new ReadXML();
         List<Player> modifyList = updateDatas.readAllegianceFromFile(xmlFilePath);
         String searchName = getStringInput("Add the name of the player you want to update here:");
         boolean existingPlayer = updateDatas.ifPlayerExist(xmlFilePath, searchName);
         Player player = updateDatas.findPlayerByName(modifyList, searchName);
-        if (!existingPlayer){
+        if (!existingPlayer) {
             searchName = getStringInput("There is no player by this name, please choose from the following list, or type ADD to add new player!\n" +
                     updateDatas.findPlayersByName(xmlFilePath, searchName));
-            if (searchName.toLowerCase().equals("add")){
-                    new WriteXML().appendPlayer(xmlFilePath);
-            } else if (!(updateDatas.ifPlayerExist(xmlFilePath, searchName))){
+            if (searchName.toLowerCase().equals("add")) {
+                new WriteXML().appendPlayer(xmlFilePath);
+            } else if (!(updateDatas.ifPlayerExist(xmlFilePath, searchName))) {
                 printMessage("Player by that name doesn't exist redirecting to create new player now...");
                 new WriteXML().appendPlayer(xmlFilePath);
             } else {
@@ -180,34 +193,258 @@ public class UI{
 
         ArrayList<String> dataList = new ArrayList<>(List.of("Back to players menu", "Update name", "Update tier", "Update troop spec",
                 "Update march size", "Update march count"));
-        printMenu(dataList);
 
-        String playerName;
-        TroopTiers tier;
-        TroopSpec spec;
-        int marchSize;
-        int marchCount;
-        int option = getIntInput("Add the number of data you want to modify:");
-        if (option == 0){
-            new Menu().players_menu();
-        } else if (option == 1){
-            String newPlayerName;
-            while (existingPlayer){
-                newPlayerName = getStringInput("Add new name");
-                existingPlayer = updateDatas.ifPlayerExist(modifyList, newPlayerName);
-                player.setPlayerName(newPlayerName);
-            }
-            String next = getStringInput("Would you like to update other data?");
-            if (next.toLowerCase().equals("y")){
-                updatePlayerDatas(xmlFilePath);
-            } else if (next.toLowerCase().equals("n")){
-                String allegianceName = updateDatas.getAllegianceName(xmlFilePath);
-                new WriteXML().writeAllegianceToFile(allegianceName, modifyList, xmlFilePath);
+        boolean stillModify = true;
+        while (stillModify) {
+            try {
+                printMenu(dataList);
+                int option = getIntInput("Add the number of data you want to modify:");
+                if (option == 0) {
+                    new Menu().players_menu();
+                } else if (option == 1) {
+                    String newPlayerName;
+                    while (existingPlayer) {
+                        newPlayerName = getStringInput("Add new name");
+                        existingPlayer = updateDatas.ifPlayerExist(modifyList, newPlayerName);
+                        player.setPlayerName(newPlayerName);
+                    }
+                    try {
+                        String next = getStringInput("Would you like to update other data?");
+                        if (next.toLowerCase().equals("y")) {
+                            continue;
+                        } else if (next.toLowerCase().equals("n")) {
+                            String allegianceName = updateDatas.getAllegianceName(xmlFilePath);
+                            new WriteXML().writeAllegianceToFile(allegianceName, modifyList, xmlFilePath);
+                            stillModify = false;
+                        } else {
+                            throw new IllegalArgumentException();
+                        }
+                    } catch (IllegalArgumentException w){
+                        printMessage("Invalid option, try again!");
+                    }
+                } else if (option == 2) {
+                    boolean validTier = false;
+                    while (!validTier) {
+                        try {
+                            TroopTiers newTier = getTiersFromUser();
+                            player.setTier(newTier);
+                            validTier = true;
+                            String next = getStringInput("Would you like to update other data?");
+                            if (next.toLowerCase().equals("y")) {
+                                continue;
+                            } else if (next.toLowerCase().equals("n")) {
+                                String allegianceName = updateDatas.getAllegianceName(xmlFilePath);
+                                new WriteXML().writeAllegianceToFile(allegianceName, modifyList, xmlFilePath);
+                                stillModify = false;
+                            } else {
+                                throw new IllegalArgumentException();
+                            }
+                        } catch (IllegalArgumentException e) {
+                            printMessage("Invalid option, try again!");
+                        }
+                    }
+                } else if (option == 3) {
+                    boolean validSpec = false;
+                    while (!validSpec) {
+                        try {
+                            TroopSpec newSpec = getSpecsFromUser();
+                            player.setSpec(newSpec);
+                            validSpec = true;
+                            String next = getStringInput("Would you like to update other data?");
+                            if (next.toLowerCase().equals("y")) {
+                                continue;
+                            } else if (next.toLowerCase().equals("n")) {
+                                String allegianceName = updateDatas.getAllegianceName(xmlFilePath);
+                                new WriteXML().writeAllegianceToFile(allegianceName, modifyList, xmlFilePath);
+                                stillModify = false;
+                            } else {
+                                throw new IllegalArgumentException();
+                            }
+                        } catch (IllegalArgumentException e) {
+                            printMessage("Invalid option, try again!");
+                        }
+                    }
+                } else if (option == 4) {
+                    boolean validMarchSize = false;
+                    while (!validMarchSize) {
+                        try {
+                            int newMarchSize = getMarchSizeFromUser();
+                            player.setMarchSize(newMarchSize);
+                            validMarchSize = true;
+                            String next = getStringInput("Would you like to update other data?");
+                            if (next.toLowerCase().equals("y")) {
+                                continue;
+                            } else if (next.toLowerCase().equals("n")) {
+                                String allegianceName = updateDatas.getAllegianceName(xmlFilePath);
+                                new WriteXML().writeAllegianceToFile(allegianceName, modifyList, xmlFilePath);
+                                stillModify = false;
+                            } else {
+                                throw new IllegalArgumentException();
+                            }
+                        } catch (IllegalArgumentException e) {
+                            printMessage("Invalid option, try again!");
+                        }
+                    }
+                } else if (option == 5) {
+                    boolean validMarchCount = false;
+                    while (!validMarchCount) {
+                        try {
+                            int newMarchCount = getMarchCountFromUser();
+                            player.setMarchCount(newMarchCount);
+                            validMarchCount = true;
+                            String next = getStringInput("Would you like to update other data?");
+                            if (next.toLowerCase().equals("y")) {
+                                continue;
+                            } else if (next.toLowerCase().equals("n")) {
+                                String allegianceName = updateDatas.getAllegianceName(xmlFilePath);
+                                new WriteXML().writeAllegianceToFile(allegianceName, modifyList, xmlFilePath);
+                                stillModify = false;
+                            } else {
+                                throw new IllegalArgumentException();
+                            }
+                        } catch (IllegalArgumentException e) {
+                            printMessage("Invalid option, try again!");
+                        }
+                    }
 
+                } else {
+                    throw new IllegalArgumentException();
+                }
+                //Player(String playerName, TroopTiers tier, TroopSpec spec, int marchSize, int marchCount)
+            } catch (IllegalArgumentException e) {
+                printMessage("Invalid option, try again!");
             }
         }
-        //Player(String playerName, TroopTiers tier, TroopSpec spec, int marchSize, int marchCount)
     }
 
+
+    public void updatePlayer(String playerName, List<Player> membersList, String xmlFilePath){
+        ArrayList<String> dataList = new ArrayList<>(List.of("Back to players menu", "Update name", "Update tier", "Update troop spec",
+                "Update march size", "Update march count"));
+        ReadXML updateDatas = new ReadXML();
+        Player player= updateDatas.findPlayerByName(membersList, playerName);
+        boolean existingPlayer = updateDatas.ifPlayerExist(membersList, playerName);
+        boolean stillModify = true;
+        while (stillModify) {
+            try {
+                printMenu(dataList);
+                int option = getIntInput("Add the number of data you want to modify:");
+                if (option == 0) {
+                    new Menu().players_menu();
+                } else if (option == 1) {
+                    String newPlayerName;
+                    while (existingPlayer) {
+                        newPlayerName = getStringInput("Add new name");
+                        existingPlayer = updateDatas.ifPlayerExist(membersList, newPlayerName);
+                        player.setPlayerName(newPlayerName);
+                    }
+                    try {
+                        String next = getStringInput("Would you like to update other data?");
+                        if (next.toLowerCase().equals("y")) {
+                            continue;
+                        } else if (next.toLowerCase().equals("n")) {
+                            String allegianceName = updateDatas.getAllegianceName(xmlFilePath);
+                            new WriteXML().writeAllegianceToFile(allegianceName, membersList, xmlFilePath);
+                            stillModify = false;
+                        } else {
+                            throw new IllegalArgumentException();
+                        }
+                    } catch (IllegalArgumentException w){
+                        printMessage("Invalid option, try again!");
+                    }
+                } else if (option == 2) {
+                    boolean validTier = false;
+                    while (!validTier) {
+                        try {
+                            TroopTiers newTier = getTiersFromUser();
+                            player.setTier(newTier);
+                            validTier = true;
+                            String next = getStringInput("Would you like to update other data?");
+                            if (next.toLowerCase().equals("y")) {
+                                continue;
+                            } else if (next.toLowerCase().equals("n")) {
+                                String allegianceName = updateDatas.getAllegianceName(xmlFilePath);
+                                new WriteXML().writeAllegianceToFile(allegianceName, membersList, xmlFilePath);
+                                stillModify = false;
+                            } else {
+                                throw new IllegalArgumentException();
+                            }
+                        } catch (IllegalArgumentException e) {
+                            printMessage("Invalid option, try again!");
+                        }
+                    }
+                } else if (option == 3) {
+                    boolean validSpec = false;
+                    while (!validSpec) {
+                        try {
+                            TroopSpec newSpec = getSpecsFromUser();
+                            player.setSpec(newSpec);
+                            validSpec = true;
+                            String next = getStringInput("Would you like to update other data?");
+                            if (next.toLowerCase().equals("y")) {
+                                continue;
+                            } else if (next.toLowerCase().equals("n")) {
+                                String allegianceName = updateDatas.getAllegianceName(xmlFilePath);
+                                new WriteXML().writeAllegianceToFile(allegianceName, membersList, xmlFilePath);
+                                stillModify = false;
+                            } else {
+                                throw new IllegalArgumentException();
+                            }
+                        } catch (IllegalArgumentException e) {
+                            printMessage("Invalid option, try again!");
+                        }
+                    }
+                } else if (option == 4) {
+                    boolean validMarchSize = false;
+                    while (!validMarchSize) {
+                        try {
+                            int newMarchSize = getMarchSizeFromUser();
+                            player.setMarchSize(newMarchSize);
+                            validMarchSize = true;
+                            String next = getStringInput("Would you like to update other data?");
+                            if (next.toLowerCase().equals("y")) {
+                                continue;
+                            } else if (next.toLowerCase().equals("n")) {
+                                String allegianceName = updateDatas.getAllegianceName(xmlFilePath);
+                                new WriteXML().writeAllegianceToFile(allegianceName, membersList, xmlFilePath);
+                                stillModify = false;
+                            } else {
+                                throw new IllegalArgumentException();
+                            }
+                        } catch (IllegalArgumentException e) {
+                            printMessage("Invalid option, try again!");
+                        }
+                    }
+                } else if (option == 5) {
+                    boolean validMarchCount = false;
+                    while (!validMarchCount) {
+                        try {
+                            int newMarchCount = getMarchCountFromUser();
+                            player.setMarchCount(newMarchCount);
+                            validMarchCount = true;
+                            String next = getStringInput("Would you like to update other data?");
+                            if (next.toLowerCase().equals("y")) {
+                                continue;
+                            } else if (next.toLowerCase().equals("n")) {
+                                String allegianceName = updateDatas.getAllegianceName(xmlFilePath);
+                                new WriteXML().writeAllegianceToFile(allegianceName, membersList, xmlFilePath);
+                                stillModify = false;
+                            } else {
+                                throw new IllegalArgumentException();
+                            }
+                        } catch (IllegalArgumentException e) {
+                            printMessage("Invalid option, try again!");
+                        }
+                    }
+
+                } else {
+                    throw new IllegalArgumentException();
+                }
+                //Player(String playerName, TroopTiers tier, TroopSpec spec, int marchSize, int marchCount)
+            } catch (IllegalArgumentException e) {
+                printMessage("Invalid option, try again!");
+            }
+        }
+    }
 
 }

@@ -98,7 +98,12 @@ public class Menu {
                     break;
                 //Remove member
                 case 5:
-                    new WriteXML().removePlayerByName(xmlFilePath);
+                    try {
+                        new WriteXML().removePlayerByName(xmlFilePath);
+                    } catch (IllegalArgumentException e){
+                        players.printMessage("Player does not exist!");
+                        break;
+                    }
                     players.pressAnyKeyToContinue();
                     players.printMenu(playersMenu);
                     break;
