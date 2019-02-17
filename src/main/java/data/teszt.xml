@@ -1,77 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<Allegiance name="teszt">
-
-  <Player name="Teszt2">
-    <troop_tier>T8</troop_tier>
-    <troop_spec>Cavalry</troop_spec>
-    <march_count>4</march_count>
-    <march_size>80000</march_size>
-  </Player>
-  <Player name="Teszt3">
-    <troop_tier>T8</troop_tier>
-    <troop_spec>Infantry</troop_spec>
-    <march_count>4</march_count>
-    <march_size>80000</march_size>
-  </Player>
-  <Player name="Teszt6">
-    <troop_tier>T8</troop_tier>
-    <troop_spec>Cavalry</troop_spec>
-    <march_count>4</march_count>
-    <march_size>80000</march_size>
-  </Player>
-  <Player name="Teszt4">
-    <troop_tier>T8</troop_tier>
-    <troop_spec>Range</troop_spec>
-    <march_count>4</march_count>
-    <march_size>80000</march_size>
-  </Player>
-  <Player name="Teszt1">
-    <troop_tier>T9</troop_tier>
-    <troop_spec>Cavalry</troop_spec>
-    <march_count>4</march_count>
-    <march_size>80000</march_size>
-  </Player>
-  <Player name="Teszt5">
-    <troop_tier>T8</troop_tier>
-    <troop_spec>Cavalry</troop_spec>
-    <march_count>4</march_count>
-    <march_size>80000</march_size>
-  </Player>
-  <Player name="Teszt6">
-    <troop_tier>T8</troop_tier>
-    <troop_spec>Cavalry</troop_spec>
-    <march_count>4</march_count>
-    <march_size>80000</march_size>
-  </Player>
-  <Player name="Teszt1">
-    <troop_tier>T8</troop_tier>
-    <troop_spec>Cavalry</troop_spec>
-    <march_count>4</march_count>
-    <march_size>80000</march_size>
-  </Player>
-  <Player name="Teszt2">
-    <troop_tier>T7</troop_tier>
-    <troop_spec>Cavalry</troop_spec>
-    <march_count>4</march_count>
-    <march_size>80000</march_size>
-  </Player>
-  <Player name="Teszt3">
-    <troop_tier>T10</troop_tier>
-    <troop_spec>Cavalry</troop_spec>
-    <march_count>4</march_count>
-    <march_size>80000</march_size>
-  </Player>
-  <Player name="Teszt4">
-    <troop_tier>T8</troop_tier>
-    <troop_spec>Cavalry</troop_spec>
-    <march_count>4</march_count>
-    <march_size>80000</march_size>
-  </Player>
-  <Player name="Teszt5">
-    <troop_tier>T8</troop_tier>
-    <troop_spec>Cavalry</troop_spec>
-    <march_count>4</march_count>
-    <march_size>80000</march_size>
-  </Player>
-
-</Allegiance>
+<Kingdom>
+  <Region name="The North">
+    <SOP name = "Winterfell">
+      <stars>4</stars>
+      <cords>456,565</cords>
+      <holder>
+        <title>Lord Paramount of the North</title>
+        <bonus id = "Infantry attack"> 53%</bonus>
+        <bonus id = "Extra rein march size">225 000</bonus>
+      </holder>
+      <regional>
+        <bonus id="Infantry defense">2%</bonus>
+        <bonus id="Wood gathering">3%</bonus>
+      </regional>
+      <banner>
+        <bonus_name id="Bannerman of Winterfell">Infantry attack</bonus_name>
+        <bonus_amount id="Bannerman of Winterfell">45%</bonus_amount>
+        <bonus_name id="Septon of Winterfell">Rallied troop capacity</bonus_name>
+        <bonus_amount id="Septon of Winterfell">112200</bonus_amount>
+      </banner>
+    </SOP>
+  </Region>
+</Kingdom>

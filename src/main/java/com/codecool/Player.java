@@ -14,6 +14,13 @@ public class Player extends Allegiance implements Comparable<Player>{
         return this.playerName.compareTo(otherPlayer.playerName);
     }
 
+    public enum AllegianceTier{
+        T1,
+        T2,
+        T3,
+        T4;
+    }
+
 
     public enum TroopTiers{
         T7,
