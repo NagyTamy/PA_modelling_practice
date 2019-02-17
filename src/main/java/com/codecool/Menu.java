@@ -59,7 +59,7 @@ public class Menu {
 
     void players_menu(){
         clearScreen();
-        ArrayList<String> playersMenu = new ArrayList<>(List.of("Exit", "Show members in alphabetical order",
+        ArrayList<String> playersMenu = new ArrayList<>(List.of("Back to main menu", "Show members in alphabetical order",
                 "Add a new member", "Add multiple new members", "Modify existing member", "Remove member"));
         UI players = new UI();
         players.printMenu(playersMenu);

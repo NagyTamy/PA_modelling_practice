@@ -6,178 +6,88 @@
     <march_size>80000</march_size>
     <march_count>4</march_count>
   </Player>
-  <Player name="Teszt3">
-    <troop_tier>T8</troop_tier>
-    <troop_spec>Infantry</troop_spec>
-    <march_size>80000</march_size>
-    <march_count>4</march_count>
-  </Player>
-  <Player name="Teszt4">
-    <troop_tier>T8</troop_tier>
-    <troop_spec>Range</troop_spec>
-    <march_size>80000</march_size>
-    <march_count>4</march_count>
-  </Player>
-  <Player name="Teszt1">
-    <troop_tier>T9</troop_tier>
-    <troop_spec>Cavalry</troop_spec>
-    <march_size>80000</march_size>
-    <march_count>4</march_count>
-  </Player>
-  <Player name="Teszt5">
-    <troop_tier>T8</troop_tier>
-    <troop_spec>Cavalry</troop_spec>
-    <march_size>80000</march_size>
-    <march_count>4</march_count>
-  </Player>
-  <Player name="Teszt1">
-    <troop_tier>T8</troop_tier>
-    <troop_spec>Cavalry</troop_spec>
-    <march_size>80000</march_size>
-    <march_count>4</march_count>
-  </Player>
-  <Player name="Teszt2">
-    <troop_tier>T7</troop_tier>
-    <troop_spec>Cavalry</troop_spec>
-    <march_size>80000</march_size>
-    <march_count>4</march_count>
-  </Player>
-  <Player name="Teszt3">
-    <troop_tier>T10</troop_tier>
-    <troop_spec>Cavalry</troop_spec>
-    <march_size>80000</march_size>
-    <march_count>4</march_count>
-  </Player>
-  <Player name="Teszt4">
-    <troop_tier>T8</troop_tier>
-    <troop_spec>Cavalry</troop_spec>
-    <march_size>80000</march_size>
-    <march_count>4</march_count>
-  </Player>
-  <Player name="Teszt5">
-    <troop_tier>T8</troop_tier>
-    <troop_spec>Cavalry</troop_spec>
-    <march_size>80000</march_size>
-    <march_count>4</march_count>
-  </Player>
-  <Player name="New">
-    <troop_tier>T9</troop_tier>
-    <troop_spec>Range</troop_spec>
-    <march_size>90000</march_size>
-    <march_count>3</march_count>
-  </Player>
-  <Player name="Bunch">
-    <troop_tier>T10</troop_tier>
-    <troop_spec>Infantry</troop_spec>
-    <march_size>140000</march_size>
-    <march_count>4</march_count>
-  </Player>
-  <Player name="Trallalala">
-    <troop_tier>T9</troop_tier>
-    <troop_spec>Infantry</troop_spec>
-    <march_size>90000</march_size>
-    <march_count>4</march_count>
-  </Player>
-  <Player name="Próba">
-    <troop_tier>T9</troop_tier>
-    <troop_spec>Cavalry</troop_spec>
-    <march_size>90000</march_size>
-    <march_count>4</march_count>
-  </Player>
-  <Player name="Tara Muppets">
-    <troop_tier>T8</troop_tier>
-    <troop_spec>Cavalry</troop_spec>
-    <march_size>90000</march_size>
-    <march_count>4</march_count>
-  </Player>
   <Player name="House Muppets">
     <troop_tier>T9</troop_tier>
-    <troop_spec>Cavalry</troop_spec>
+    <troop_spec>Infantry</troop_spec>
     <march_size>90000</march_size>
-    <march_count>4</march_count>
-  </Player>
-  <Player name="0">
-    <troop_tier>T8</troop_tier>
-    <troop_spec>Range</troop_spec>
-    <march_size>80000</march_size>
-    <march_count>4</march_count>
-  </Player>
-  <Player name="Julcsika">
-    <troop_tier>T9</troop_tier>
-    <troop_spec>Cavalry</troop_spec>
-    <march_size>90000</march_size>
-    <march_count>2</march_count>
-  </Player>
-  <Player name="Jade Muppets">
-    <troop_tier>T8</troop_tier>
-    <troop_spec>Range</troop_spec>
-    <march_size>80000</march_size>
-    <march_count>4</march_count>
-  </Player>
-  <Player name="TaraNew">
-    <troop_tier>T8</troop_tier>
-    <troop_spec>Cavalry</troop_spec>
-    <march_size>82000</march_size>
-    <march_count>4</march_count>
-  </Player>
-  <Player name="KateOne">
-    <troop_tier>T7</troop_tier>
-    <troop_spec>Range</troop_spec>
-    <march_size>60000</march_size>
-    <march_count>4</march_count>
-  </Player>
-  <Player name="KateOne">
-    <troop_tier>T7</troop_tier>
-    <troop_spec>Range</troop_spec>
-    <march_size>60000</march_size>
-    <march_count>4</march_count>
-  </Player>
-  <Player name="TaraNewest">
-    <troop_tier>T8</troop_tier>
-    <troop_spec>Cavalry</troop_spec>
-    <march_size>80000</march_size>
-    <march_count>4</march_count>
-  </Player>
-  <Player name="Tarabellita">
-    <troop_tier>T9</troop_tier>
-    <troop_spec>Cavalry</troop_spec>
-    <march_size>90000</march_size>
-    <march_count>4</march_count>
-  </Player>
-  <Player name="Kate">
-    <troop_tier>T9</troop_tier>
-    <troop_spec>Range</troop_spec>
-    <march_size>90000</march_size>
-    <march_count>4</march_count>
-  </Player>
-  <Player name="Tara">
-    <troop_tier>T8</troop_tier>
-    <troop_spec>Cavalry</troop_spec>
-    <march_size>80000</march_size>
     <march_count>4</march_count>
   </Player>
   <Player name="KateBeetle">
-    <troop_tier>T10</troop_tier>
-    <troop_spec>Infantry</troop_spec>
-    <march_size>100000</march_size>
-    <march_count>4</march_count>
-  </Player>
-  <Player name="Tara">
     <troop_tier>T7</troop_tier>
     <troop_spec>Range</troop_spec>
     <march_size>60000</march_size>
     <march_count>4</march_count>
   </Player>
-  <Player name="Tara">
+  <Player name="Blablebleble">
+    <troop_tier>T7</troop_tier>
+    <troop_spec>Cavalry</troop_spec>
+    <march_size>60000</march_size>
+    <march_count>4</march_count>
+  </Player>
+  <Player name="TaraTest">
+    <troop_tier>T7</troop_tier>
+    <troop_spec>Cavalry</troop_spec>
+    <march_size>60000</march_size>
+    <march_count>4</march_count>
+  </Player>
+  <Player name="TaraMuppetsy">
+    <troop_tier>T8</troop_tier>
+    <troop_spec>Cavalry</troop_spec>
+    <march_size>80000</march_size>
+    <march_count>4</march_count>
+  </Player>
+  <Player name="0">
+    <troop_tier>T9</troop_tier>
+    <troop_spec>Infantry</troop_spec>
+    <march_size>90000</march_size>
+    <march_count>4</march_count>
+  </Player>
+  <Player name="Teszt555555">
+    <troop_tier>T9</troop_tier>
+    <troop_spec>Cavalry</troop_spec>
+    <march_size>90000</march_size>
+    <march_count>4</march_count>
+  </Player>
+  <Player name="Teszt999">
+    <troop_tier>T8</troop_tier>
+    <troop_spec>Cavalry</troop_spec>
+    <march_size>80000</march_size>
+    <march_count>4</march_count>
+  </Player>
+  <Player name="Gabe">
     <troop_tier>T7</troop_tier>
     <troop_spec>Infantry</troop_spec>
     <march_size>60000</march_size>
     <march_count>4</march_count>
   </Player>
-  <Player name="Help">
-    <troop_tier>T10</troop_tier>
+  <Player name="Petteszt">
+    <troop_tier>T7</troop_tier>
+    <troop_spec>Range</troop_spec>
+    <march_size>78000</march_size>
+    <march_count>3</march_count>
+  </Player>
+  <Player name="Teszt">
+    <troop_tier>T8</troop_tier>
+    <troop_spec>Cavalry</troop_spec>
+    <march_size>80000</march_size>
+    <march_count>4</march_count>
+  </Player>
+  <Player name="TaraAppendTest">
+    <troop_tier>T7</troop_tier>
+    <troop_spec>Cavalry</troop_spec>
+    <march_size>60000</march_size>
+    <march_count>4</march_count>
+  </Player>
+  <Player name="Gabebob">
+    <troop_tier>T9</troop_tier>
     <troop_spec>Infantry</troop_spec>
-    <march_size>100000</march_size>
+    <march_size>90000</march_size>
+    <march_count>4</march_count>
+  </Player>
+  <Player name="Hahaha">
+    <troop_tier>T9</troop_tier>
+    <troop_spec>Infantry</troop_spec>
+    <march_size>90000</march_size>
     <march_count>4</march_count>
   </Player>
 </Allegiance>

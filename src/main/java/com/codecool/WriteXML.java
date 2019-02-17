@@ -111,6 +111,33 @@ public class WriteXML {
                 validInput = true;
                 if (openToWrite.ifPlayerExist(xmlFilePath, player.getPlayerName())){
                     validInput = false;
+                    // writeFiles.printMessage("Player with this name already exist, please chose another name!");
+                    String addOrModify = writeFiles.getStringInput("Player with this name already exists:\n" + player + "\nWould you like to modify it? " +
+                            "Y - to modify existing player, N - add new player with different name:");
+                    if (addOrModify.toLowerCase().equals("y")){
+                        // System.out.println("Implement update member method here");
+                        writeFiles.updatePlayer(player.getPlayerName(), updateList, xmlFilePath);
+                        String continueOrBack = writeFiles.getStringInput("Existing members data updated, would you like to add a new member?");
+                        if (continueOrBack.toLowerCase().equals("y")){
+                            continue;
+                        } else if (continueOrBack.toLowerCase().equals("n")){
+                            validInput = true;
+                            break;
+                        } else {
+                            throw new IllegalArgumentException();
+                        }
+                    } else if (addOrModify.toLowerCase().equals("n")){
+                        continue;
+                    } else {
+                        throw new IllegalArgumentException();
+                    }
+                } else {
+                    updateList.add(player);
+                    writeFiles.printPlayersList(updateList);
+                    writeAllegianceToFile(allegianceName, updateList, xmlFilePath);
+                }
+                    //Modify existing member if creating new finds member already exist at the same name - under development
+                    /*
                     String addOrModify = writeFiles.getStringInput("Player with this name already exist, would you like to modify it? " +
                             "Y - to modify existing player, N - add new player with different name:");
                     if (addOrModify.toLowerCase().equals("y")){
@@ -119,9 +146,8 @@ public class WriteXML {
                         continue;
                     } else {
                         throw new IllegalArgumentException();
-                    }
-                }
-                updateList.add(player);
+                    }*/
+
             } catch (InputMismatchException e) {
                 writeFiles.printMessage("Not a valid option!");
             } catch (IllegalArgumentException e){
@@ -129,8 +155,6 @@ public class WriteXML {
             }
         }
 
-        writeFiles.printPlayersList(updateList);
-        writeAllegianceToFile(allegianceName, updateList, xmlFilePath);
     }
 
     public void appendPlayer(String xmlFilePath, Player player){
@@ -154,23 +178,37 @@ public class WriteXML {
                     validInput = true;
                     if (openToWrite.ifPlayerExist(xmlFilePath, player.getPlayerName())){
                         validInput = false;
-                        String addOrModify = writeFiles.getStringInput("Player with this name already exist, would you like to modify it? " +
+                        // writeFiles.printMessage("Player with this name already exist, please chose another name!");
+                        String addOrModify = writeFiles.getStringInput("Player with this name already exists:\n" + player + "\nWould you like to modify it? " +
                                 "Y - to modify existing player, N - add new player with different name:");
                         if (addOrModify.toLowerCase().equals("y")){
+                            // System.out.println("Implement update member method here");
                             writeFiles.updatePlayer(player.getPlayerName(), updateList, xmlFilePath);
+                            String continueOrBack = writeFiles.getStringInput("Existing members data updated, would you like to add a new member?");
+                            if (continueOrBack.toLowerCase().equals("y")){
+                                continue;
+                            } else if (continueOrBack.toLowerCase().equals("n")){
+                                validInput = true;
+                                break;
+                            } else {
+                                throw new IllegalArgumentException();
+                            }
                         } else if (addOrModify.toLowerCase().equals("n")){
                             continue;
                         } else {
                             throw new IllegalArgumentException();
                         }
+                    } else {
+                        updateList.add(player);
+                        writeFiles.printPlayersList(updateList);
+                        writeAllegianceToFile(allegianceName, updateList, xmlFilePath);
                     }
-                    updateList.add(player);
                 } catch (InputMismatchException e) {
                     writeFiles.printMessage("Not a valid option!");
                 } catch (IllegalArgumentException e){
                     writeFiles.printMessage("Not a valid option!");
                 }
-            } String more = writeFiles.getStringInput("Would you like to add more player? Press any key to continue or No to save to file.");
+            }String more = writeFiles.getStringInput("Would you like to add more player? Press any key to continue or No to save to file.");
             if (more.toLowerCase().equals("n") || more.toLowerCase().equals("no")){
                 newPlayer = false;
             } else {
@@ -204,7 +242,7 @@ public class WriteXML {
             } else if (!playerExist) {
                 writeFiles.printMessage("There is no player with that exact name, here is the list of players having similar names:");
                 writeFiles.printPlayersList(openToWrite.findPlayersByName(xmlFilePath, searchForPlayer));
-                String option = writeFiles.getStringInput("Add the name of the player you want to remove or 0 to exitÍ:");
+                String option = writeFiles.getStringInput("Add the name of the player you want to remove or 0 to back to menu:");
                 if (option.equals("0")) {
                     new Menu().players_menu();
                 } else if (!(openToWrite.ifPlayerExist(xmlFilePath, option))) {
