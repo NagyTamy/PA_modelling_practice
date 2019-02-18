@@ -5,6 +5,7 @@ import java.util.*;
 
 import com.codecool.Player.TroopTiers;
 import com.codecool.Player.TroopSpec;
+import com.codecool.Player.AllegianceTier;
 
 public class UI{
 
@@ -55,6 +56,26 @@ public class UI{
             tier = TroopTiers.T10;
         }else {
             throw new IllegalArgumentException("\nPlease make sure to use a valid format (e.g.: 7 or t7 or T7)!\n");
+        }
+        return tier;
+    }
+
+
+    public Player.AllegianceTier getAllegianceTierFromUser(){
+        System.out.println("\nAdd you place in allegiance hierarchy here (valid format e.g.: 1 or t1 or T1): \n");
+        AllegianceTier tier;
+        Scanner scan = new Scanner(System.in);
+        String aTier = scan.nextLine();
+        if (aTier.toLowerCase().equals("1") || aTier.toLowerCase().equals("t1")){
+            tier = AllegianceTier.T1;
+        } else if (aTier.toLowerCase().equals("2") || aTier.toLowerCase().equals("t2")){
+            tier = AllegianceTier.T2;
+        } else if (aTier.toLowerCase().equals("3") || aTier.toLowerCase().equals("t3")){
+            tier = AllegianceTier.T3;
+        } else if (aTier.toLowerCase().equals("4") || aTier.toLowerCase().equals("t4")){
+            tier = AllegianceTier.T4;
+        }else {
+            throw new IllegalArgumentException("\nPlease make sure to use a valid format (e.g.: 2 or t2 or T2)!\n");
         }
         return tier;
     }
@@ -155,7 +176,8 @@ public class UI{
                 TroopSpec spec = getSpecsFromUser();
                 int marchSize = getMarchSizeFromUser(tier, player);
                 int marchCount = getMarchCountFromUser();
-                return new Player(playerName, tier, spec, marchSize, marchCount);
+                AllegianceTier aTier = getAllegianceTierFromUser();
+                return new Player(playerName, tier, spec, marchSize, marchCount, aTier);
             } catch (IllegalArgumentException e){
                 printMessage("Please make sure to enter the right format!\n\nTry again...");
             }
@@ -192,7 +214,7 @@ public class UI{
         }
 
         ArrayList<String> dataList = new ArrayList<>(List.of("Back to players menu", "Update name", "Update tier", "Update troop spec",
-                "Update march size", "Update march count"));
+                "Update march size", "Update march count", "Update allegiance tier"));
 
         boolean stillModify = true;
         while (stillModify) {
@@ -307,6 +329,27 @@ public class UI{
                         }
                     }
 
+                } else if (option == 6) {
+                    boolean validTier = false;
+                    while (!validTier) {
+                        try {
+                            AllegianceTier newTier = getAllegianceTierFromUser();
+                            player.setAllTier(newTier);
+                            validTier = true;
+                            String next = getStringInput("Would you like to update other data?");
+                            if (next.toLowerCase().equals("y")) {
+                                continue;
+                            } else if (next.toLowerCase().equals("n")) {
+                                String allegianceName = updateDatas.getAllegianceName(xmlFilePath);
+                                new WriteXML().writeAllegianceToFile(allegianceName, modifyList, xmlFilePath);
+                                stillModify = false;
+                            } else {
+                                throw new IllegalArgumentException();
+                            }
+                        } catch (IllegalArgumentException e) {
+                            printMessage("Invalid option, try again!");
+                        }
+                    }
                 } else {
                     throw new IllegalArgumentException();
                 }
@@ -437,6 +480,27 @@ public class UI{
                         }
                     }
 
+                } else if (option == 6) {
+                    boolean validTier = false;
+                    while (!validTier) {
+                        try {
+                            AllegianceTier newTier = getAllegianceTierFromUser();
+                            player.setAllTier(newTier);
+                            validTier = true;
+                            String next = getStringInput("Would you like to update other data?");
+                            if (next.toLowerCase().equals("y")) {
+                                continue;
+                            } else if (next.toLowerCase().equals("n")) {
+                                String allegianceName = updateDatas.getAllegianceName(xmlFilePath);
+                                new WriteXML().writeAllegianceToFile(allegianceName, membersList, xmlFilePath);
+                                stillModify = false;
+                            } else {
+                                throw new IllegalArgumentException();
+                            }
+                        } catch (IllegalArgumentException e) {
+                            printMessage("Invalid option, try again!");
+                        }
+                    }
                 } else {
                     throw new IllegalArgumentException();
                 }

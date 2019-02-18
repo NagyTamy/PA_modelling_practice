@@ -13,6 +13,7 @@ import java.util.List;
 
 import com.codecool.Player.TroopTiers;
 import com.codecool.Player.TroopSpec;
+import com.codecool.Player.AllegianceTier;
 
 public class ReadXML {
     UI fileReader = new UI();
@@ -41,7 +42,8 @@ public class ReadXML {
                             TroopTiers.valueOf(eElement.getElementsByTagName("troop_tier").item(0).getTextContent()),
                             TroopSpec.valueOf(eElement.getElementsByTagName("troop_spec").item(0).getTextContent()),
                             Integer.parseInt(eElement.getElementsByTagName("march_size").item(0).getTextContent()),
-                            Integer.parseInt(eElement.getElementsByTagName("march_count").item(0).getTextContent()));
+                            Integer.parseInt(eElement.getElementsByTagName("march_count").item(0).getTextContent()),
+                            AllegianceTier.valueOf(eElement.getElementsByTagName("allegiance").item(0).getTextContent()));
 
                     list.add(member);
                 }
@@ -171,6 +173,17 @@ public class ReadXML {
         List<Player> searchResult = new ArrayList<>();
         for (Player p : membersList){
             if (p.getTier().equals(findTier)){
+                searchResult.add(p);
+            }
+        } return searchResult;
+    }
+
+    public List<Player> findPlayersInHierarchy(String xmlFilePath){
+        AllegianceTier findTier = fileReader.getAllegianceTierFromUser();
+        List<Player> membersList = readAllegianceFromFile(xmlFilePath);
+        List<Player> searchResult = new ArrayList<>();
+        for (Player p : membersList){
+            if (p.getAllTier().equals(findTier)){
                 searchResult.add(p);
             }
         } return searchResult;

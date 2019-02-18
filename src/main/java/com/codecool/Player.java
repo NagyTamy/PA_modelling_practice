@@ -41,36 +41,41 @@ public class Player extends Allegiance implements Comparable<Player>{
     private int marchCount;
     private double marchPower;
     private int marchSize;
+    private AllegianceTier aTier;
+    private double gearPower = 0;
 
 
     public Player(){
     }
 
-    public Player(String playerName, TroopTiers tier, TroopSpec spec){
+    public Player(String playerName, TroopTiers tier, TroopSpec spec, AllegianceTier aTier){
         this.playerName = playerName;
         this.tier = tier;
         this.spec = spec;
         marchCount = 4;
         marchSize = setDefaultMarchSize(tier);
         marchPower = countMarchPower(tier);
+        this.aTier = aTier;
     }
 
-    public Player(String playerName, TroopTiers tier, TroopSpec spec, int marchSize){
+    public Player(String playerName, TroopTiers tier, TroopSpec spec, int marchSize, AllegianceTier aTier){
         this.playerName = playerName;
         this.tier = tier;
         this.spec = spec;
         this.marchSize = marchSize;
         marchCount = 4;
         marchPower = countMarchPower(tier);
+        this.aTier = aTier;
     }
 
-    public Player(String playerName, TroopTiers tier, TroopSpec spec, int marchSize, int marchCount){
+    public Player(String playerName, TroopTiers tier, TroopSpec spec, int marchSize, int marchCount, AllegianceTier aTier){
         this.playerName = playerName;
         this.tier = tier;
         this.spec = spec;
         this.marchCount = marchCount;
         this.marchSize = marchSize;
         marchPower = countMarchPower(marchSize, tier);
+        this.aTier = aTier;
     }
 
 
@@ -160,6 +165,22 @@ public class Player extends Allegiance implements Comparable<Player>{
 
     public void setMarchCount(int newMarchCount){
         this.marchCount = newMarchCount;
+    }
+
+    public AllegianceTier getAllTier(){
+        return aTier;
+    }
+
+    public void setAllTier(AllegianceTier newTier){
+        this.aTier = newTier;
+    }
+
+    public void setGearPower(double newGearPower){
+        this.gearPower = newGearPower;
+    }
+
+    public double getGearPower(){
+        return gearPower;
     }
 
 

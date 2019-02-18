@@ -71,6 +71,16 @@ public class WriteXML {
                 Element march_count = doc.createElement("march_count");
                 march_count.appendChild(doc.createTextNode(String.valueOf(p.getMarchCount())));
                 player.appendChild(march_count);
+
+                //allegiance hierarchy element
+                Element allegiance = doc.createElement("allegiance");
+                allegiance.appendChild(doc.createTextNode(String.valueOf(p.getAllTier())));
+                player.appendChild(allegiance);
+
+                //gear power element
+                Element gear_power = doc.createElement("gear_power");
+                gear_power.appendChild(doc.createTextNode(String.valueOf(p.getGearPower())));
+                player.appendChild(gear_power);
             }
 
 
