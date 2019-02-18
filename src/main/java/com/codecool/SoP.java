@@ -12,12 +12,9 @@ public class SoP {
     private final String region;
     private final Cords cords;
     private final Stars stars;
-    private final String holderTitle;
+    private Holder holder;
 
-    //Holder bonuses stored in a map, the key stores the bonus' type, the value stores the granted bonus
-    private Map<String, Double> holderBonuses;
-
-    //the minimum bannerman neceserry for takeover
+    //the minimum bannerman necessary for takeover
     private int bannerCount;
 
     //the minimum required hierarchy level in-game
@@ -45,7 +42,7 @@ public class SoP {
 
         private final double stars;
 
-        private Stars(double stars) {
+        Stars(double stars) {
             this.stars = stars;
         }
 
@@ -101,14 +98,13 @@ public class SoP {
 
 
 
-    public SoP(String name, String region, Cords cords, Stars stars, String holderTitle, Map<String, Double> holderBonuses,
+    public SoP(String name, String region, Cords cords, Stars stars, Holder holder,
                Map<String, Double> regionalBonuses, Map<String, List<String>> bannerBonuses){
         this.name = name;
         this.region = region;
         this.cords = cords;
         this.stars = stars;
-        this.holderTitle = holderTitle;
-        this.holderBonuses = holderBonuses;
+        this.holder = holder;
         bannerCount = requiredBannerCount(stars);
         tier = requiredAllegianceTier(stars);
         this.regionalBonuses = regionalBonuses;
@@ -133,14 +129,6 @@ public class SoP {
         return stars;
     }
 
-    public String getHolderTitle(){
-        return holderTitle;
-    }
-
-    public Map<String, Double> getHolderBonuses(){
-        return holderBonuses;
-    }
-
     public Map<String, Double> getRegionalBonuses(){
         return regionalBonuses;
     }
@@ -155,5 +143,9 @@ public class SoP {
 
     public AllegianceTier getTier() {
         return tier;
+    }
+
+    public Holder getHolder(){
+        return holder;
     }
 }

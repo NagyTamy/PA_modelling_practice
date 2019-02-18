@@ -1,24 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Kingdom>
-  <Region name="The North">
-    <SOP name = "Winterfell">
-      <stars>4</stars>
-      <cords>456,565</cords>
-      <holder>
-        <title>Lord Paramount of the North</title>
-        <bonus id = "Infantry attack"> 53%</bonus>
-        <bonus id = "Extra rein march size">225 000</bonus>
-      </holder>
+    <SOP name = "Winterfell" region="The North" stars = "FOUR">
+      <cords x = "456" y = "556"/>
       <regional>
         <bonus id="Infantry defense">2%</bonus>
         <bonus id="Wood gathering">3%</bonus>
       </regional>
-      <banner>
-        <bonus_name id="Bannerman of Winterfell">Infantry attack</bonus_name>
-        <bonus_amount id="Bannerman of Winterfell">45%</bonus_amount>
-        <bonus_name id="Septon of Winterfell">Rallied troop capacity</bonus_name>
-        <bonus_amount id="Septon of Winterfell">112200</bonus_amount>
+      <holder title = "Lord Paramount of the North">
+        <bonus id = "Infantry attack"> 53%</bonus>
+        <bonus id = "Extra rein march size">225 000</bonus>
+      </holder>
+      <banner id ="Bannerman of Winterfell">
+        <bonus id="Infantry attack">45%</bonus>
+        <bonus id="Rallied troop capacity">112200</bonus>
       </banner>
     </SOP>
-  </Region>
 </Kingdom>
